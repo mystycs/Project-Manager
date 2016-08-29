@@ -2,4 +2,8 @@
 
 <%= @category.title %>
 
+<% @category.projects.each do |project| %>
+  <%= link_to project.title, project_path(project) %>
+<% end %>
+
 <%= render partial: 'projects/form', locals: { project: @project } %>

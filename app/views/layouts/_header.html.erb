@@ -7,6 +7,8 @@
         <% else %>
           <li>Signed in as <%= current_user.email %></li>
           <li><%= link_to "Sign out", destroy_user_session_path, method: "delete" %></li>
+          <li><%= link_to "Create a Category", new_category_path %></li>
+          <li><%= link_to "Create a Project", new_project_path %></li>
         <% end %>
     </ul>
 </nav>
