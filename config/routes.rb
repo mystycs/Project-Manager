@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
    root 'project_manager#index', as: 'project_manager'
+   resources :categories
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
