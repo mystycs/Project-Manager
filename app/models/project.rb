@@ -6,4 +6,8 @@ class Project < ActiveRecord::Base
   # has_many :comments
   #validates :category_id, presence: true
   belongs_to :category
+
+  validates_uniqueness_of :title, :scope => :description
+  validates_uniqueness_of :description, :scope => :title
+
 end

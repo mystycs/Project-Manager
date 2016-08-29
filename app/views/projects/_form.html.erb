@@ -1,7 +1,26 @@
 <h3> Create a Project </h3>
 <%= form_for @project do |f| %>
+
+<% if @project.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+    <ul>
+    <% @project.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="field">
+
 Category: <%= f.collection_select(:category_id, Category.all, :id, :title) %></br>
   Title: <%= f.text_field :title %></br>
-  Description: <%= f.text_field :description %></br>
+  Description: <%= f.text_area :description, cols: 40, rows: 15 %></br>
+</div>
+<div class="actions">
+
   <%= f.submit %>
+</div>
+
 <% end %>
