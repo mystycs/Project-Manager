@@ -1,9 +1,12 @@
-<h1> Category </h1>
+<h1> Category: <%= @category.title %> </h1>
 
-<%= @category.title %>
-
+<h2> Projects: </h2>
+<ul>
 <% @category.projects.each do |project| %>
-  <%= link_to project.title, project_path(project) %>
+  <li><%= link_to project.title, project_path(project) %></li>
 <% end %>
+</ul>
+</br></br>
+<h2><%= link_to "Create a Project", new_project_path %></h2>
 
-<%= render partial: 'projects/form', locals: { project: @project } %>
+<!-- <%= render partial: 'projects/form', locals: { project: @project } %> !-->

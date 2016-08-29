@@ -1,6 +1,6 @@
 <h3> Create a Project </h3>
 <%= form_for @project do |f| %>
-<%= f.collection_select(:category_id, Category.all, :id, :title) %></br>
+Category: <%= f.collection_select(:category_id, Category.all, :id, :title) %></br>
   Title: <%= f.text_field :title %></br>
   Description: <%= f.text_field :description %></br>
   <%= f.submit %>
