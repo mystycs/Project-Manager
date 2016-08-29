@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
+    @project = Project.new
   end
 
   def index
@@ -17,7 +18,7 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to category_path(@category)
     else
-      render 'create'
+      render 'new'
     end
   end
 

@@ -12,10 +12,19 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def show
+    @project = Project.find(params[:id])
+    @category = Category.find(params[:id])
+  end
+
+  def index
+    @projects = Project.all
+  end
+
   private
 
-  def category_params
-    params.require(:category).permit(:title, :description)
+  def project_params
+    params.require(:project).permit(:title, :description)
   end
 
 end
