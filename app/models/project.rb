@@ -12,5 +12,4 @@ class Project < ActiveRecord::Base
   validates_uniqueness_of :description, :scope => :title
 
 
-
 end

@@ -21,6 +21,8 @@ class ProjectsController < ApplicationController
     @user = User.find(@project.user_id).full_name
     @comment = Comment.new
     @comments = Comment.filter_comments(@project.id)
+    @task = Task.new
+    @tasks = Task.filter_tasks(@project.id)
     #@category = Category.find(params[:id])
   end
 

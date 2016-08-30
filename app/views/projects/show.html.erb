@@ -1,8 +1,16 @@
 <h1> Project </h1>
-
-
-Project Title: <%= @project.title %></br></br>
+Project Title: <%= @project.title %></br>
+<%= (100/@tasks.count) %> Completed
+</br></br>
 Description: <%= @project.description %></br></br>
+
+<% @tasks.each_with_index do |task, index| %>
+  <%= index+1 %>: <%= task.task %><br><br>
+<!-- </br></br>Commented by: <%=%></br></br></br> -->
+<% end %>
+
+<%= render partial: 'tasks/form', locals: { task: @task } %>
+<br><br>
 Posted By: <%= @user %>
 </br>
 <hr>
