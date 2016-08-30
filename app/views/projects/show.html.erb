@@ -6,9 +6,10 @@ Description: <%= @project.description %></br></br>
 Posted By: <%= @user %>
 </br>
 <hr>
-Comments:
-<% @comments.each do |comment| %>
-  <p> <%= comment.comment %></p>
+Comments:</br></br>
+<% @comments.each_with_index do |comment, index| %>
+  <%= index+1 %>: <%= comment.comment %> - <%= comment.get_name_from_user_id(comment.user_id) %><br><br>
+<!-- </br></br>Commented by: <%=%></br></br></br> -->
 <% end %>
 <h3>Add Comment:</h3></br>
 <%= render partial: 'comments/form', locals: { comment: @comment } %>
