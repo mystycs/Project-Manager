@@ -4,3 +4,6 @@
 Project Title: <%= @project.title %></br></br>
 Description: <%= @project.description %></br></br>
 Posted By: <%= @user %>
+</br></br></br></br>
+<h3>Add Comment:</h3></br>
+<%= render partial: 'comments/form', locals: { comment: @comment } %>

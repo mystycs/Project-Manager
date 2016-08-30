@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @user = User.find(@project.user_id).full_name
+    @comment = Comment.new
     #@category = Category.find(params[:id])
   end
 
