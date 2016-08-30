@@ -20,6 +20,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @user = User.find(@project.user_id).full_name
     @comment = Comment.new
+    @comments = Comment.where(["project_id = ?", @project.id])
     #@category = Category.find(params[:id])
   end
 
