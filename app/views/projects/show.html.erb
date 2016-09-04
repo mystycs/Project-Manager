@@ -1,36 +1,26 @@
-<h1> Project </h1>
-Project Title: <%= @project.title %></br>
-</br>
-Description: <%= @project.description %></br></br>
-Tasks:<br><br>
+<!-- <h1> Project </h1> -->
+<h2>Project: <%= @project.title %></h2>
+<h3>Description: <%= @project.description %></h3>
+Posted By: <%= @user %><br><br>
+<h4>Tasks:</h4>
 <% @tasks.each_with_index do |task, index| %>
   <%= index+1 %>: <%= task.task %> <% if current_user.present? %> -
-<!-- complete? <%= task.completed%> -->
-
-
-<% if task.completed != true %>
-<%= link_to "Mark Complete", {:controller => "tasks", :action => "completed", :id => task.id, :project_id => @project.id} %>
-<% else %>
- <b>Completed</b>
-<% end %><% end %>
-
+    <% if task.completed != true %>
+      <%= link_to "Mark Completed", {:controller => "tasks", :action => "completed", :id => task.id, :project_id => @project.id} %>
+    <% else %>
+      <b>Completed</b>
+    <% end %>
+  <% end %>
   <br><br>
-
-<!-- <%= task.id %> -->
-
-<!-- </br></br>Commented by: <%=%></br></br></br> -->
 <% end %>
-<% if current_user.present? %>
 
+<% if current_user.present? %>
+<h4> Add a Task: </h4>
 <%= render partial: 'tasks/form', locals: { task: @task } %>
-<br><br>
-Posted By: <%= @user %>
-</br>
 <% end %>
 
 <hr>
-Comments:</br></br>
-
+<h4>Comments:</h4></br>
 <% @comments.each_with_index do |comment, index| %>
   <%= index+1 %>: <%= comment.comment %> - <%= comment.get_name_from_user_id(comment.user_id) %>
 
@@ -43,6 +33,6 @@ Comments:</br></br>
 <% end %>
 <% if current_user.present? %>
 
-<h3>Add Comment:</h3></br>
+<h4>Add a Comment:</h4>
 <%= render partial: 'comments/form', locals: { comment: @comment } %>
 <% end %>
