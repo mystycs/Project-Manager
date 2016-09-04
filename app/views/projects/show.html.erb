@@ -34,7 +34,7 @@ Comments:</br></br>
 <% @comments.each_with_index do |comment, index| %>
   <%= index+1 %>: <%= comment.comment %> - <%= comment.get_name_from_user_id(comment.user_id) %>
 
-  <%if current_user.id == comment.user_id %>
+  <%if current_user.present? && current_user.id == comment.user_id %>
   <%= link_to 'Delete', comment_path(comment.id, :project_id => @project.id), :method => :delete %>
   <% end %>
 

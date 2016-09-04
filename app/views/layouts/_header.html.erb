@@ -1,14 +1,18 @@
-<nav class="">
-    <ul>
+<nav class="navbar navbar-default navbar-static-top">
+    <ul class="nav navbar-nav">
         <li> <%= link_to "Projects Home", project_manager_path %> </li>
         <% if !user_signed_in? %>
           <li><%= link_to "Sign in", new_user_session_path %></li>
           <li><%= link_to "Sign up", new_user_registration_path %></li>
         <% else %>
-          <li>Signed in as <%= current_user.email %></li>
-          <li><%= link_to "Sign out", destroy_user_session_path, method: "delete" %></li>
+          <!-- <li>Signed in as <%= current_user.email %></li> -->
           <li><%= link_to "Create a Category", new_category_path %></li>
           <li><%= link_to "Create a Project", new_project_path %></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, method: "delete" %></li>
         <% end %>
     </ul>
+
+    <% if user_signed_in? %>
+     <p class="navbar-text navbar-right" style ="margin-right: 15px;">Signed in as <%= current_user.email %></b></p>
+     <% end %>
 </nav>
