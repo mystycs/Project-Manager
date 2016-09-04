@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users
-   root 'project_manager#index', as: 'project_manager'
-   resources :categories
-   resources :projects
-   resources :comments
-   resources :tasks
-   #devise_for :users, :controllers => { registrations: 'registrations' }
+  root 'project_manager#index', as: 'project_manager'
+  resources :categories
+  resources :projects
+  resources :comments
+  resources :tasks
+
+  resources :tasks do
+    member do
+      get :completed
+      put :completed
+    end
+  end
+  # devise_for :users, :controllers => { registrations: 'registrations' }
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

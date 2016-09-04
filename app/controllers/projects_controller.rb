@@ -23,8 +23,11 @@ class ProjectsController < ApplicationController
     @comments = Comment.filter_comments(@project.id)
     @task = Task.new
     @tasks = Task.filter_tasks(@project.id)
+    # @task_completed = Task.completed?(@task_id)
     #@category = Category.find(params[:id])
   end
+
+
 
   def index
     @projects = Project.all
@@ -33,7 +36,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :description, :category_id)
+    params.require(:project).permit(:title, :description, :category_id, :task_id)
   end
 
 end
