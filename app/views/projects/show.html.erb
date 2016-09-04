@@ -2,7 +2,6 @@
 Project Title: <%= @project.title %></br>
 </br></br>
 Description: <%= @project.description %></br></br>
-
 <% @tasks.each_with_index do |task, index| %>
   <%= index+1 %>: <%= task.task %> -
 <!-- complete? <%= task.completed%> -->
