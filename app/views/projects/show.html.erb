@@ -1,30 +1,48 @@
 <h1> Project </h1>
 Project Title: <%= @project.title %></br>
-</br></br>
+</br>
 Description: <%= @project.description %></br></br>
+Tasks:<br><br>
 <% @tasks.each_with_index do |task, index| %>
-  <%= index+1 %>: <%= task.task %> -
+  <%= index+1 %>: <%= task.task %> <% if current_user.present? %> -
 <!-- complete? <%= task.completed%> -->
+
+
 <% if task.completed != true %>
 <%= link_to "Mark Complete", {:controller => "tasks", :action => "completed", :id => task.id, :project_id => @project.id} %>
 <% else %>
  <b>Completed</b>
-<% end %>
+<% end %><% end %>
+
   <br><br>
+
 <!-- <%= task.id %> -->
 
 <!-- </br></br>Commented by: <%=%></br></br></br> -->
 <% end %>
+<% if current_user.present? %>
 
 <%= render partial: 'tasks/form', locals: { task: @task } %>
 <br><br>
 Posted By: <%= @user %>
 </br>
+<% end %>
+
 <hr>
 Comments:</br></br>
+
 <% @comments.each_with_index do |comment, index| %>
-  <%= index+1 %>: <%= comment.comment %> - <%= comment.get_name_from_user_id(comment.user_id) %><br><br>
+  <%= index+1 %>: <%= comment.comment %> - <%= comment.get_name_from_user_id(comment.user_id) %>
+
+  <%if current_user.id == comment.user_id %>
+  <%= link_to 'Delete', comment_path(comment.id, :project_id => @project.id), :method => :delete %>
+  <% end %>
+
+<br><br>
 <!-- </br></br>Commented by: <%=%></br></br></br> -->
 <% end %>
+<% if current_user.present? %>
+
 <h3>Add Comment:</h3></br>
 <%= render partial: 'comments/form', locals: { comment: @comment } %>
+<% end %>

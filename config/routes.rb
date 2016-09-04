@@ -12,6 +12,13 @@ Rails.application.routes.draw do
       put :completed
     end
   end
+
+  # resources :comments do
+  #   member do
+  #     get :delete
+  #     put :delete
+  #   end
+  # end
   # devise_for :users, :controllers => { registrations: 'registrations' }
 
   # The priority is based upon order of creation: first created -> highest priority.

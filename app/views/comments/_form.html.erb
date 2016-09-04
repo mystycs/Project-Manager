@@ -14,9 +14,7 @@
 <div class="field">
 
 <%= f.text_area :comment, cols: 40, rows: 15 %></br>
-<!-- <input type="hidden" value="<%= current_user.id %>" name="user_id"> -->
 <%= hidden_field_tag 'user_id', current_user.id  %>
-<!-- <input type="hidden" value="<%= @project.id %>" name="project_id"> -->
 <%= hidden_field_tag 'project_id', @project.id %>
 
 </div>

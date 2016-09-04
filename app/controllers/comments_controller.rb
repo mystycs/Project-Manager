@@ -10,6 +10,24 @@ class CommentsController < ApplicationController
     end
   end
 
+  def delete
+    @task = Task.find(params[:id])
+    redirect_to project_path(params[:project_id])
+  end
+
+  def show
+  end
+
+  def destroy
+  @comment = Comment.find(params[:id])
+  @comment.destroy
+  redirect_to project_path(params[:project_id])
+  # respond_to do |format|
+  #   format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+  #   format.json { head :no_content }
+  # end
+end
+
   private
 
   def comment_params
