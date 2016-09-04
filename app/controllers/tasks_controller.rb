@@ -14,10 +14,9 @@ class TasksController < ApplicationController
     # @task = Project.find(params[:id])
     # @projectid = Task.find(params[:id])
     # @task.update_attributes(completed: 1)
-
     @task = Task.find(params[:id])
-    @task.completed = 1
-    redirect_to project_path(1)
+    @task.update_attributes(completed: true)
+    redirect_to project_path(params[:project_id])
   end
 
   private
