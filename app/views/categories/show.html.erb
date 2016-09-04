@@ -1,14 +1,10 @@
-<h1> Category: <%= @category.title %> </h1>
-
-<h2> Projects: </h2>
+<h2> Category: <%= @category.title %> </h2>
+<h3> Projects: </h3>
 <ul>
 <% @category.projects.each do |project| %>
   <li><%= link_to project.title, project_path(project) %></li>
 <% end %>
 </ul>
-<% if current_user.present? %>
-</br></br>
-
-<h2><%= link_to "Create a Project", new_project_path %></h2>
+<% if current_user.present? %><br>
+<h3><%= link_to "Create a Project", new_project_path %></h3>
 <% end %>
-<!-- <%= render partial: 'projects/form', locals: { project: @project } %> !-->

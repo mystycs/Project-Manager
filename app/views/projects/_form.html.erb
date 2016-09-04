@@ -1,4 +1,4 @@
-<h3> Create a Project </h3>
+<h2> Create a Project </h2>
 <%= form_for @project do |f| %>
 
 <% if @project.errors.any? %>
@@ -14,12 +14,11 @@
 <% end %>
 <div class="field">
 
-Category: <%= f.collection_select(:category_id, Category.all, :id, :title) %></br>
-  Title: <%= f.text_field :title %></br>
-  Description: <br> <%= f.text_area :description, cols: 40, rows: 15 %></br>
+Category: <%= f.collection_select(:category_id, Category.all, :id, :title) %><br>
+  Title: <%= f.text_field :title %><br>
+  Description: <br> <%= f.text_area :description, cols: 50, rows: 8 %><br>
 </div>
 <div class="actions">
-
   <%= f.submit %>
 </div>
 
