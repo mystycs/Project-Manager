@@ -4,8 +4,10 @@ class TasksController < ApplicationController
     @task.project_id = params[:project_id]
     @task.completed = false
     if @task.save
+      flash[:notice] = "Task successfully created"
       redirect_to project_path(@task.project_id)
     else
+      flash[:alert] = "There was an error in creating the task"
       redirect_to project_path(@task.project_id)
     end
   end
@@ -16,6 +18,7 @@ class TasksController < ApplicationController
     # @task.update_attributes(completed: 1)
     @task = Task.find(params[:id])
     @task.update_attributes(completed: true)
+    flash[:error] = "Task marked completed"
     redirect_to project_path(params[:project_id])
   end
 

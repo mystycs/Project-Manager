@@ -10,8 +10,10 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user_id = current_user.id
     if @project.save
+      flash[:notice] = "Project successfully created"
       redirect_to project_path(@project)
     else
+      flash[:alert] = "Project could not be created"
       render 'new'
     end
   end
