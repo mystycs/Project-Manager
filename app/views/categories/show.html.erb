@@ -1,10 +1,17 @@
 <h2> Category: <%= @category.title %> </h2>
-<h3> Projects: </h3>
-<ul>
-<% @category.projects.each do |project| %>
-  <li><%= link_to project.title, project_path(project) %></li>
-<% end %>
-</ul>
-<% if current_user.present? %><br>
-<h3><%= link_to "Create a Project", new_project_path %></h3>
+<% if @category.projects.count == 0 %>
+  <p> There are currently no projects here.</p>
+  <% if current_user.present? %><br>
+    <h3><%= link_to "Create a Project", new_project_path %></h3>
+  <% end %>
+<% else %>
+  <h3> Projects: </h3>
+  <ul>
+  <% @category.projects.each do |project| %>
+    <li><%= link_to project.title, project_path(project) %></li>
+  <% end %>
+  </ul>
+  <% if current_user.present? %><br>
+    <h3><%= link_to "Create a Project", new_project_path %></h3>
+  <% end %>
 <% end %>
