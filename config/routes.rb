@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  #devise_for :users
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
   root 'project_manager#index', as: 'project_manager'
   resources :categories
   resources :projects
