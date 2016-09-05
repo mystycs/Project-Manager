@@ -1,4 +1,7 @@
 class TasksController < ApplicationController
+
+before_action :authenticate_user!, only: [:create]
+
   def create
     @task = Task.new(comment_params)
     @task.project_id = params[:project_id]
