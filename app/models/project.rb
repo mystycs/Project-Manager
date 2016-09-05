@@ -10,6 +10,7 @@ class Project < ActiveRecord::Base
 
   validates_uniqueness_of :title, :scope => :description
   validates_uniqueness_of :description, :scope => :title
+  validates_presence_of :category_id
 
 
 end
