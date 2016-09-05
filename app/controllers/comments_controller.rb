@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
       flash[:notice] = 'You have successfully posted a comment'
       redirect_to project_path(@comment.project_id)
     else
-      flash[:alert] = 'There was an error in creating the task'
+      flash[:alert] = 'There was an error in posting the comment'
       redirect_to project_path(@comment.project_id)
     end
   end
