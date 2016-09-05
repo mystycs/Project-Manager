@@ -6,6 +6,14 @@ class ProjectsController < ApplicationController
     # @category = Category.find(params[:category_id])
   end
 
+  def destroy
+    @project = Project.find(params[:id])
+    @project.destroy
+    flash[:error] = 'You have successfully deleted this project.'
+    redirect_to project_manager_path#(params[:project_id])
+    # @category = Category.find(params[:category_id])
+  end
+
   def create
     @project = Project.new(project_params)
     @project.user_id = current_user.id

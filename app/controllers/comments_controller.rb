@@ -12,10 +12,10 @@ class CommentsController < ApplicationController
     end
   end
 
-  def delete
-    @task = Task.find(params[:id])
-    redirect_to project_path(params[:project_id])
-  end
+  # def delete
+  #   @task = Task.find(params[:id])
+  #   redirect_to project_path(params[:project_id])
+  # end
 
   def show
   end
