@@ -1,0 +1,9 @@
+<%= form_for @task_complete do |f| %>
+
+  <%= hidden_field_tag 'project_id', @project.id %>
+<div class="actions">
+
+  <%= f.submit %>
+</div>
+
+<% end %>
