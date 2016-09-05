@@ -8,12 +8,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= render 'layouts/header' %>
   <div class="container">
-    <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
-    <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
-    <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
-    <%= render 'layouts/header' %>
     <div class="row">
+      <%= content_tag(:div, flash[:error], :class => "alert alert-warning") if flash[:error] %>
+      <%= content_tag(:div, flash[:notice], :class => "alert alert-success") if flash[:notice] %>
+      <%= content_tag(:div, flash[:alert], :class => "alert alert-danger") if flash[:alert] %>
       <div class="col-md-1"></div>
       <div class="col-md-10"><div class="jumbotron"><%= yield %></div></div>
       <div class="col-md-1"></div>
