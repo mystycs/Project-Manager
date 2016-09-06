@@ -8,8 +8,8 @@ class Project < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
 
-  validates_uniqueness_of :title # , :scope => :description
-  validates_uniqueness_of :description # , :scope => :title
+  validates_uniqueness_of :title
+  validates_uniqueness_of :description
 
   validates_presence_of :category_id, :title, :description
 end
