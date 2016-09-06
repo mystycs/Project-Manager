@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @project.destroy
     flash[:error] = 'You have successfully deleted this project.'
-    redirect_to project_manager_path#(params[:project_id])
+    redirect_to project_manager_path # (params[:project_id])
     # @category = Category.find(params[:category_id])
   end
 
