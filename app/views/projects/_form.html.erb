@@ -12,15 +12,22 @@
     </ul>
   </div>
 <% end %>
+<h3>Categories</h3>
+<% if Category.count == 0 %>
+No categories to show<br><br>
+<% else %>
 <div class="field">
-
-    <%= f.label "Categories" %><br>
     <%= f.collection_check_boxes :category_ids, Category.all, :id, :title %><br>
      <!-- <%= f.fields_for :categories, @project.categories.build do |categories_fields| %>
        <%= categories_fields.text_field :title %> -->
      <% end %><br>
-  Title: <%= f.text_field :title %><br>
-  Description: <br> <%= f.text_area :description, cols: 50, rows: 8 %><br>
+
+</div>
+<% end %>
+<div class="field">
+
+Title: <%= f.text_field :title %><br>
+Description: <br> <%= f.text_area :description, cols: 50, rows: 8 %><br>
 </div>
 <div class="actions">
   <%= f.submit %>

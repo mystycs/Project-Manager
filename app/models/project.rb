@@ -14,7 +14,7 @@ class Project < ActiveRecord::Base
   validates_uniqueness_of :title
   validates_uniqueness_of :description
 
-  #validates_presence_of :category_id, :title, :description
+  validates_presence_of :category_ids, :title, :description
   accepts_nested_attributes_for :categories
 
 
