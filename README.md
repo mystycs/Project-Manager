@@ -13,4 +13,4 @@ rake db:migrate
 
 ## License
 
-MIT. See [LICENSE.md](https://github.com/mystycs/project-manager/LICENSE.md) for details.
+MIT. See [LICENSE.md](https://github.com/mystycs/project-manager/blob/master/LICENSE.md) for details.
