@@ -18,7 +18,8 @@ No categories to show<br><br>
 <% else %>
 <div class="field">
     <%= f.collection_check_boxes :category_ids, Category.all, :id, :title %><br>
-<% end %><br>
+<br>
+
 </div>
 <% end %>
 <div class="field">
