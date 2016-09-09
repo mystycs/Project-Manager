@@ -4,15 +4,13 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
     @project.categories.build
-    # @category = Category.find(params[:category_id])
   end
 
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
     flash[:error] = 'You have successfully deleted this project.'
-    redirect_to project_manager_path # (params[:project_id])
-    # @category = Category.find(params[:category_id])
+    redirect_to project_manager_path
   end
 
   def create
@@ -34,8 +32,6 @@ class ProjectsController < ApplicationController
     @comments = Comment.filter_comments(@project.id)
     @task = Task.new
     @tasks = Task.filter_tasks(@project.id)
-    # @task_completed = Task.completed?(@task_id)
-    # @category = Category.find(params[:id])
   end
 
   def index

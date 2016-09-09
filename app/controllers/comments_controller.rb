@@ -14,11 +14,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # def delete
-  #   @task = Task.find(params[:id])
-  #   redirect_to project_path(params[:project_id])
-  # end
-
   def show
   end
 
@@ -27,11 +22,7 @@ class CommentsController < ApplicationController
     @comment.destroy
     flash[:error] = 'You have successfully removed a comment'
     redirect_to project_path(params[:project_id])
-  # respond_to do |format|
-  #   format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-  #   format.json { head :no_content }
-  # end
-end
+  end
 
   private
 

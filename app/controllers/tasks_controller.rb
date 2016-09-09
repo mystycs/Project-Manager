@@ -15,9 +15,6 @@ class TasksController < ApplicationController
   end
 
   def completed
-    # @task = Project.find(params[:id])
-    # @projectid = Task.find(params[:id])
-    # @task.update_attributes(completed: 1)
     @task = Task.find(params[:id])
     @task.update_attributes(completed: true)
     flash[:error] = 'Task marked completed'
