@@ -1,0 +1,12 @@
+
+  <%= form_for @subscription do |f| %>
+
+  <div class="field">
+
+  Category: <%= f.collection_select(:project_id, Project.all, :id, :title) %><br>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+  <% end %>

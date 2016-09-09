@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @project.categories.build
     # @category = Category.find(params[:category_id])
   end
 
@@ -15,7 +16,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(project_params)
+    @project = Project.create(project_params)
     @project.user_id = current_user.id
     if @project.save
       flash[:notice] = 'Project successfully created'
@@ -44,6 +45,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :description, :category_id, :task_id)
+    params.require(:project).permit(:title, :description, :task_id, :category_id, category_ids:[], categories_attributes: [:title])
   end
 end

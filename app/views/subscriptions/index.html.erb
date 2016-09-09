@@ -1,0 +1,11 @@
+<ul>
+
+<% @projects.each do |project| %>
+
+    <li><%=project.title%></li>
+  <% end %>
+  </ul>
+
+
+
+  <%= render partial: 'form', locals: { subscription: @subscription } %>
