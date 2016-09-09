@@ -17,7 +17,6 @@ class Project < ActiveRecord::Base
   validates_presence_of :category_ids, :title, :description
   accepts_nested_attributes_for :categories
 
-
   #   def categories_attributes=(categories_attributes)
   #    categories_attributes.values.each do |category_attribute|
   #      category = Category.find_or_create_by(category_attribute)
