@@ -4,7 +4,8 @@ A Ruby on Rails framework driven app which is designed to manage projects and ta
 
 ## Running Locally
 
-```  git clone git@github.com:mystycs/project-manager.git # or clone your own fork
+```  
+  git clone git@github.com:mystycs/project-manager.git # or clone your own fork
   cd project-manager
   bundle install
   rake db:migrate
