@@ -10,6 +10,6 @@ A Ruby on Rails framework driven app which is designed to manage projects and ta
   rake db:migrate
 ```
 
-== License
+## License
 
 MIT. See [LICENSE.md](https://github.com/mystycs/project-manager/LICENSE.md) for details.
