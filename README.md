@@ -11,6 +11,10 @@ bundle install
 rake db:migrate
 ```
 
+## Contribute
+
+All and any kind of contributions are always welcome!
+
 ## License
 
 MIT. See [LICENSE.md](https://github.com/mystycs/project-manager/blob/master/LICENSE.md) for details.
