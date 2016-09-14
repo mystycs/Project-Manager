@@ -3,7 +3,7 @@
 <h2> <%= link_to category.title, category_path(category) %> </h2>
   <ul>
   <% category.projects.each do |project| %>
-    <li><%= link_to project.title, project_path(project) %></li>
+    <li><%= link_to project.title, category_project_path(category, project) %></li>
     <ol><%=project.description%></ol>
   <% end %>
   </ul>

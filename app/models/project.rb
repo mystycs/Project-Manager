@@ -6,7 +6,7 @@ class Project < ActiveRecord::Base
   has_many :categories, through: :project_categories
 
   validates_uniqueness_of :title
-  validates_uniqueness_of :description
+  #validates_uniqueness_of :description
 
   validates_presence_of :category_ids, :title, :description
 

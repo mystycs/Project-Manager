@@ -13,6 +13,7 @@
 <% end %>
 <div class="field">
   Task: <%= f.text_field :task %></br>
+  <%= hidden_field_tag 'category_id', @category.id %>
   <%= hidden_field_tag 'project_id', @project.id %>
 </div>
 
