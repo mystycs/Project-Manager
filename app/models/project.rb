@@ -9,7 +9,7 @@ class Project < ActiveRecord::Base
   # validates_uniqueness_of :description
 
   validates_presence_of :title, :description
-  validates_presence_of :category_ids, :message => "A category must be present"
+  validates_presence_of :category_ids, message: 'A category must be present'
 
   # accepts_nested_attributes_for :categories, :reject_if => proc { |attrs| attrs['title'].blank? }
 
