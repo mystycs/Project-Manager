@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    @project.categories.build
+    # @project.categories.build
   end
 
   def destroy

@@ -8,14 +8,19 @@ class Project < ActiveRecord::Base
   validates_uniqueness_of :title
   # validates_uniqueness_of :description
 
-  validates_presence_of :category_ids, :title, :description
+  # validates_presence_of :title, :description
+  validates_presence_of :category_ids
 
-  # accepts_nested_attributes_for :categories
+  # accepts_nested_attributes_for :categories, :reject_if => proc { |attrs| attrs['title'].blank? }
 
   def categories_attributes=(categories_attributes)
     categories_attributes.values.each do |category_attribute|
       category = Category.find_or_create_by(category_attribute)
-      categories << category
+      if category.title?
+        categories << category
+      elsif category.persisted?
+        category.destroy
+      end
     end
   end
 end
