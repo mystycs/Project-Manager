@@ -3,6 +3,12 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    if Category.find_by(id: params[:category_id]) != nil
+      @category = Category.find_by(id: params[:category_id])
+      @category = @category.id
+    else
+      @category = []
+  end
     # @project.categories.build
   end
 

@@ -2,7 +2,7 @@
 <% if @category.projects.count == 0 %>
   <p> There are currently no projects here.</p>
   <% if current_user.present? %><br>
-    <h3><%= link_to "Create a Project", new_project_path %></h3>
+    <h3><%= link_to "Create a Project", new_category_project_path(@category.id) %></h3>
   <% end %>
 <% else %>
   <h3> Projects: </h3>
@@ -12,6 +12,6 @@
   <% end %>
   </ul>
   <% if current_user.present? %><br>
-    <h3><%= link_to "Create a Project", new_project_path %></h3>
+    <h3><%= link_to "Create a Project", new_category_project_path(@category.id) %></h3>
   <% end %>
 <% end %>

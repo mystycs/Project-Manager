@@ -17,7 +17,7 @@
   No categories to show<br><br>
 <% else %>
   <div class="field">
-    <%= f.collection_check_boxes :category_ids, Category.all, :id, :title %><br>
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :title, :checked => [@category] %><br>
 <% end %>
   <br>Create new category:
   <%= f.fields_for :categories, @project.categories.build do |categories_fields| %>
