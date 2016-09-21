@@ -10,5 +10,5 @@ class Project < ActiveRecord::Base
 
   validates_presence_of :category_ids, :title, :description
 
-  accepts_nested_attributes_for :categories
+  #accepts_nested_attributes_for :categories
 end
