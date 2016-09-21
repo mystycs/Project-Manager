@@ -22,7 +22,6 @@
   <br>Create new category:
   <%= f.fields_for :categories, @project.categories.build do |categories_fields| %>
         <%= categories_fields.text_field :title %>
-  </div>
 <% end %>
   <div class="field">
     Title: <%= f.text_field :title %><br>
