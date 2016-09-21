@@ -1,5 +1,5 @@
 <h2> Create a Project </h2>
-<%= form_for [@project] do |f| %>
+<%= form_for @project do |f| %>
 
 <% if @project.errors.any? %>
   <div id="error_explanation">
@@ -18,8 +18,10 @@ No categories to show<br><br>
 <% else %>
 <div class="field">
     <%= f.collection_check_boxes :category_ids, Category.all, :id, :title %><br>
-<br>
-
+<% end %>
+<br>Create new category:
+<%= f.fields_for :categories, @project.categories.build do |categories_fields| %>
+        <%= categories_fields.text_field :title %>
 </div>
 <% end %>
 <div class="field">
