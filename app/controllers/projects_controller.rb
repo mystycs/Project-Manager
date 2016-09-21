@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
       @category = Category.find_by(id: params[:category_id])
       @project = @category.projects.find_by(id: params[:id])
       if @project.nil?
-        redirect_to category_projects(@project), alert: "Project not found"
+        redirect_to category_projects(@project), alert: 'Project not found'
       end
     else
       @project = Project.find(params[:id])

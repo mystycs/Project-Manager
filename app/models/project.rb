@@ -18,5 +18,4 @@ class Project < ActiveRecord::Base
       categories << category
     end
   end
-
 end
